@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserBasicInfoController;
 use App\Http\Middleware\CheckApiToken;
 use Illuminate\Http\Request;
@@ -27,10 +29,10 @@ Route::middleware([CheckApiToken::class])->group(function () {
 
     Route::post('/user/basic-info', [UserBasicInfoController::class, 'storeBasicInfo']);
 
-    // Route::post('/posts/add', [PostController::class, 'store']);
-    // Route::get('/posts', [PostController::class, 'index']);
+    Route::post('/posts/add', [PostController::class, 'store']);
+    Route::get('/posts', [PostController::class, 'index']);
     
-    // Route::post('/posts/{post}/comments', [CommentController::class, 'store']);
+    Route::post('/posts/{post}/comments', [CommentController::class, 'store']);
 
     // Route::get('/tags', [TagController::class, 'index']);
     // Route::post('/tags', [TagController::class, 'store']);
