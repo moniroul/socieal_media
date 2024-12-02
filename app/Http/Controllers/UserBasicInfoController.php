@@ -19,6 +19,8 @@ class UserBasicInfoController extends Controller
 
         $userID =  Auth::guard('api')->user()->id;
 
+
+
         $basicInfo =   UserBasicInfo::create([
             'user_id' => $userID,
             'address' => $validated['address'],
